@@ -1,14 +1,13 @@
-# Brent Lee Johnson ==> Class 1
-# End of Module Project
-# Lottery Numbers
-
-
 # Imports
 from tkinter import *
+from tkinter import messagebox
 from playsound import playsound
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 root = Tk()
-root.title("Lotto Login Form")
+root.title("Banking Details")
 root.geometry("550x500")
 root.config(bg="#100C08")
 

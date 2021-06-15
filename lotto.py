@@ -15,6 +15,5 @@ lotto_lbl.pack()
 # Content
 
 
-
 # Run the code
 root.mainloop()

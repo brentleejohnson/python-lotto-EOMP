@@ -13,7 +13,7 @@ import winsound
 
 root = Tk()
 root.title("Registration")
-root.geometry("300x180")
+root.geometry("300x200")
 root.config(bg="#343434")
 
 # Heading
@@ -56,7 +56,7 @@ id_entry.place(x="140", y="125")
 # Footer
 footer_lbl = Label(root, text="Made by Brent Johnson", fg="#7A7A7A")
 footer_lbl.config(bg="#343434")
-footer_lbl.place(x="85", y="160")
+footer_lbl.place(x="85", y="180")
 
 
 # Run the code

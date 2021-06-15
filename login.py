@@ -6,7 +6,10 @@
 # Imports
 from tkinter import *
 from tkinter import messagebox
-from playsound import playsound
+# if on windows, use:
+import winsound
+# on mac, use:
+# from playsound import playsound
 
 root = Tk()
 root.title("Registration")

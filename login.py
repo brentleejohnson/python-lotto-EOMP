@@ -54,6 +54,8 @@ id_entry.config()
 id_entry.place(x="140", y="125")
 
 # Register Button
+# Function
+
 register_btn = Button(root, text="Register", width="15", command="")
 register_btn.place(x="95", y="180")
 

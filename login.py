@@ -13,7 +13,7 @@ import winsound
 
 root = Tk()
 root.title("Registration")
-root.geometry("300x200")
+root.geometry("300x250")
 root.config(bg="#343434")
 
 # Heading
@@ -53,10 +53,14 @@ id_entry = Entry(root)
 id_entry.config()
 id_entry.place(x="140", y="125")
 
+# Register Button
+register_btn = Button(root, text="Register", width="15", command="")
+register_btn.place(x="95", y="180")
+
 # Footer
 footer_lbl = Label(root, text="Made by Brent Johnson", fg="#7A7A7A")
 footer_lbl.config(bg="#343434")
-footer_lbl.place(x="85", y="180")
+footer_lbl.place(x="85", y="230")
 
 
 # Run the code

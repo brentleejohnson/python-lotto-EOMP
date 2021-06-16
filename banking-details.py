@@ -9,7 +9,7 @@ from email.mime.multipart import MIMEMultipart
 root = Tk()
 root.title("Banking Details")
 root.geometry("550x500")
-root.config(bg="#100C08")
+root.config(bg="#343434")
 
 
 # Run the code

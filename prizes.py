@@ -1,6 +1,6 @@
 # Imports
 from tkinter import *
-from playsound import playsound
+# from playsound import playsound
 
 root = Tk()
 root.title("Prize Table")

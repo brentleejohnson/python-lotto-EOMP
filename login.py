@@ -8,7 +8,9 @@ from tkinter import *
 from tkinter import messagebox
 import uuid
 from email_validator import validate_email, EmailNotValidError
-from za_id_number import *
+import rsaidnumber
+from dateutil import relativedelta
+import datetime
 # if on windows, use:
 # import winsound
 # on mac, use:
@@ -71,12 +73,24 @@ def register_button():
 
         # Update with normalised form
         email = valid.email
+
+    # Id No Validation
+        int(id_entry.get())
+        id = id_entry.get()
+        date_of_birth = rsaidnumber.parse(id).date_of_birth
+        if len(id_entry.get()) < 13 or len(id_entry.get()) > 13:
+            raise ValueError
+        elif relativedelta.relativedelta(datetime.datetime.today(), date_of_birth).years >= 18:
+            messagebox.showinfo(message="Congratulations you dwoos. You can now play!")
+            root.destroy()
+            import lotto
+        else:
+            messagebox.showerror(message="Excuse me young one. You are underage!")
     except EmailNotValidError as e:
         # Email is not valid, exception message
         messagebox.showerror("Email Validation", "Please check to ensure that your email is correct.")
-
-    # Id No Validation
-
+    except ValueError:
+        messagebox.showerror(message="Id number show be 13 digits.")
 
 
 register_btn = Button(root, text="Register", width="15", command=register_button)

@@ -6,14 +6,16 @@
 # Imports
 from tkinter import *
 from tkinter import messagebox
+import uuid
+from email_validator import validate_email, EmailNotValidError
 # if on windows, use:
-import winsound
+# import winsound
 # on mac, use:
-# from playsound import playsound
+from playsound import playsound
 
 root = Tk()
 root.title("Registration")
-root.geometry("300x250")
+root.geometry("350x250")
 root.config(bg="#343434")
 
 # Heading
@@ -53,10 +55,30 @@ id_entry = Entry(root)
 id_entry.config()
 id_entry.place(x="140", y="125")
 
+
 # Register Button
 # Function
 
-register_btn = Button(root, text="Register", width="15", command="")
+
+def register_button():
+    # Email Validation
+    email = email_entry.get()
+
+    try:
+        # Validate
+        valid = validate_email(email)
+
+        # Update with normalised form
+        email = valid.email
+    except EmailNotValidError as e:
+        # Email is not valid, exception message
+        messagebox.showerror("Email Validation", "Please check to ensure that your email is correct.")
+
+    # Id No Validation
+
+
+
+register_btn = Button(root, text="Register", width="15", command=register_button)
 register_btn.place(x="95", y="180")
 
 # Footer

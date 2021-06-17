@@ -76,7 +76,7 @@ lotto_play_again_btn.config()
 lotto_play_again_btn.pack()
 
 # Exit Button
-lotto_exit_btn = Button(root, text="EXIT")
+lotto_exit_btn = Button(root, text="EXIT", command="exit")
 lotto_exit_btn.config()
 lotto_exit_btn.pack()
 

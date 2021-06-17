@@ -64,20 +64,21 @@ id_entry.place(x="140", y="125")
 
 
 def register_button():
-    # Email Validation
-    email = email_entry.get()
-
     try:
+        # Email Validation
+        email = email_entry.get()
+
         # Validate
         valid = validate_email(email)
 
         # Update with normalised form
         email = valid.email
 
-    # Id No Validation
+        # Id No Validation
         int(id_entry.get())
         id = id_entry.get()
         date_of_birth = rsaidnumber.parse(id).date_of_birth
+
         if len(id_entry.get()) < 13 or len(id_entry.get()) > 13:
             raise ValueError
         elif relativedelta.relativedelta(datetime.datetime.today(), date_of_birth).years >= 18:

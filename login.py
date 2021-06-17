@@ -8,6 +8,7 @@ from tkinter import *
 from tkinter import messagebox
 import uuid
 from email_validator import validate_email, EmailNotValidError
+from za_id_number import *
 # if on windows, use:
 # import winsound
 # on mac, use:

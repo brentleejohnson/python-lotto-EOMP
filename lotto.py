@@ -5,12 +5,12 @@ import tkinter as tk
 
 root = Tk()
 root.title("Lotto Streak!")
-root.geometry("550x500")
+root.geometry("600x500")
 root.config(bg="#343434")
 
 # Heading
 lotto_lbl = Label(root, text="Lotto Streak!!", fg="#7A7A7A")
-lotto_lbl.config(bg="#343434", font="15")
+lotto_lbl.config(bg="#343434", font=("Garuda", 20))
 lotto_lbl.pack()
 
 # Content

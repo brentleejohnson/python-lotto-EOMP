@@ -1,5 +1,6 @@
 # Imports
 from tkinter import *
+import tkinter as tk
 # from playsound import playsound
 
 root = Tk()
@@ -14,8 +15,8 @@ lotto_lbl.pack()
 
 # Content
 # Input
-lotto_input_spin_1 = Spinbox(root, from_=0, to=49)
-lotto_input_spin_1.config()
+lotto_input_spin_1 = tk.Spinbox(root, from_=0, to=49)
+lotto_input_spin_1.config(width=10)
 lotto_input_spin_1.pack()
 
 lotto_input_spin_2 = Spinbox(root, from_=0, to=49)

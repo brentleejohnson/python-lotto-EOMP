@@ -64,21 +64,26 @@ lotto_output_entry_6 = Entry(root, state="disable")
 lotto_output_entry_6.config(width=4, font=("Garuda", 15))
 lotto_output_entry_6.place(x=520, y=300)
 
+# Amount of Plays Left
+plays_left_lbl = Label(root)
+plays_left_lbl.config()
+plays_left_lbl.place()
+
 # Buttons
 # Claim Button
 lotto_claim_btn = Button(root, text="CLAIM")
 lotto_claim_btn.config()
-lotto_claim_btn.place()
+lotto_claim_btn.place(x=5, y=465)
 
 # Play Again Button
 lotto_play_again_btn = Button(root, text="PLAY AGAIN")
 lotto_play_again_btn.config()
-lotto_play_again_btn.place()
+lotto_play_again_btn.place(x=260, y=465)
 
 # Exit Button
 lotto_exit_btn = Button(root, text="EXIT", command="exit")
 lotto_exit_btn.config()
-lotto_exit_btn.place()
+lotto_exit_btn.place(x=535, y=465)
 
 
 # Run the code

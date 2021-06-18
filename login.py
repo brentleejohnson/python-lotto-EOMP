@@ -82,7 +82,7 @@ def register_button():
         if len(id_entry.get()) < 13 or len(id_entry.get()) > 13:
             raise ValueError
         elif relativedelta.relativedelta(datetime.datetime.today(), date_of_birth).years >= 18:
-            messagebox.showinfo(message="Congratulations you dwoos. You can now play!")
+            messagebox.showinfo(message="Congratulations. You can now play!")
             root.destroy()
             import lotto
         else:

@@ -119,7 +119,7 @@ lotto_play_again_btn.config()
 lotto_play_again_btn.place(x=180, y=465)
 
 # Exit Button
-lotto_exit_btn = Button(root, text="EXIT", command="exit")
+lotto_exit_btn = Button(root, text="EXIT", command=exit)
 lotto_exit_btn.config()
 lotto_exit_btn.place(x=385, y=465)
 

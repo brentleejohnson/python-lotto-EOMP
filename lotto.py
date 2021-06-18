@@ -7,7 +7,7 @@ import random
 
 root = Tk()
 root.title("Lotto Streak!")
-root.geometry("600x500")
+root.geometry("450x500")
 root.config(bg="#343434")
 
 # Heading
@@ -20,53 +20,33 @@ lotto_lbl.pack()
 # Input
 lotto_input_spin_1 = tk.Spinbox(root, from_=0, to=49)
 lotto_input_spin_1.config(width=2, font=("Garuda", 20))
-lotto_input_spin_1.place(x=20, y=70)
+lotto_input_spin_1.place(x=150, y=70)
 
 lotto_input_spin_2 = Spinbox(root, from_=0, to=49)
 lotto_input_spin_2.config(width=2, font=("Garuda", 20))
-lotto_input_spin_2.place(x=120, y=90)
+lotto_input_spin_2.place(x=225, y=70)
 
 lotto_input_spin_3 = Spinbox(root, from_=0, to=49)
 lotto_input_spin_3.config(width=2, font=("Garuda", 20))
-lotto_input_spin_3.place(x=220, y=110)
+lotto_input_spin_3.place(x=300, y=80)
 
 lotto_input_spin_4 = Spinbox(root, from_=0, to=49)
 lotto_input_spin_4.config(width=2, font=("Garuda", 20))
-lotto_input_spin_4.place(x=320, y=130)
+lotto_input_spin_4.place(x=370, y=120)
 
 lotto_input_spin_5 = Spinbox(root, from_=0, to=49)
 lotto_input_spin_5.config(width=2, font=("Garuda", 20))
-lotto_input_spin_5.place(x=420, y=150)
+lotto_input_spin_5.place(x=390, y=190)
 
 lotto_input_spin_6 = Spinbox(root, from_=0, to=49)
 lotto_input_spin_6.config(width=2, font=("Garuda", 20))
-lotto_input_spin_6.place(x=520, y=170)
+lotto_input_spin_6.place(x=395, y=260)
 
 
 # Answers
-lotto_output_entry_1 = Entry(root, state="disable")
-lotto_output_entry_1.config(width=4, font=("Garuda", 15))
-lotto_output_entry_1.place(x=20, y=200)
-
-lotto_output_entry_2 = Entry(root, state="disable")
-lotto_output_entry_2.config(width=4, font=("Garuda", 15))
-lotto_output_entry_2.place(x=120, y=220)
-
-lotto_output_entry_3 = Entry(root, state="disable")
-lotto_output_entry_3.config(width=4, font=("Garuda", 15))
-lotto_output_entry_3.place(x=220, y=240)
-
-lotto_output_entry_4 = Entry(root, state="disable")
-lotto_output_entry_4.config(width=4, font=("Garuda", 15))
-lotto_output_entry_4.place(x=320, y=260)
-
-lotto_output_entry_5 = Entry(root, state="disable")
-lotto_output_entry_5.config(width=4, font=("Garuda", 15))
-lotto_output_entry_5.place(x=420, y=280)
-
-lotto_output_entry_6 = Entry(root, state="disable")
-lotto_output_entry_6.config(width=4, font=("Garuda", 15))
-lotto_output_entry_6.place(x=520, y=300)
+answ_frame = Frame(root, width=320, height=140)
+answ_frame.config()
+answ_frame.place(x=20, y=165)
 
 
 # Amount of Plays Left
@@ -95,7 +75,10 @@ def lotto():
                 user_list.append(user_list[i])
             elif 49 < int(user_list[i]):
                 messagebox.showerror("Error", "Enter numbers between 0-49")
+            # Supposed to add the ouput to output_entries
 
+        # Storage for the lists
+        matching_numbers = set(user_list) & set(lotto_numbers)
     except:
         messagebox.show('error')
 
@@ -109,12 +92,12 @@ lotto_claim_btn.place(x=5, y=465)
 # Play Again Button
 lotto_play_again_btn = Button(root, text="PLAY AGAIN")
 lotto_play_again_btn.config()
-lotto_play_again_btn.place(x=260, y=465)
+lotto_play_again_btn.place(x=180, y=465)
 
 # Exit Button
 lotto_exit_btn = Button(root, text="EXIT", command="exit")
 lotto_exit_btn.config()
-lotto_exit_btn.place(x=535, y=465)
+lotto_exit_btn.place(x=385, y=465)
 
 
 # Run the code

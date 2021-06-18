@@ -104,13 +104,17 @@ def lotto():
 
 
 # Buttons
+# Play Button
+lotto_play_btn = Button(root, text="PLAY", command=lotto)
+lotto_play_btn.place(x=385, y=250)
+
 # Claim Button
 lotto_claim_btn = Button(root, text="CLAIM")
 lotto_claim_btn.config()
 lotto_claim_btn.place(x=5, y=465)
 
 # Play Again Button
-lotto_play_again_btn = Button(root, text="PLAY", command=lotto)
+lotto_play_again_btn = Button(root, text="PLAY AGAIN")
 lotto_play_again_btn.config()
 lotto_play_again_btn.place(x=180, y=465)
 

@@ -1,6 +1,8 @@
 # Imports
 from tkinter import *
 import tkinter as tk
+from tkinter import messagebox
+import random
 # from playsound import playsound
 
 root = Tk()
@@ -12,6 +14,7 @@ root.config(bg="#343434")
 lotto_lbl = Label(root, text="Lotto Streak!!", fg="#7A7A7A")
 lotto_lbl.config(bg="#343434", font=("Garuda", 20))
 lotto_lbl.pack()
+
 
 # Content
 # Input
@@ -39,6 +42,7 @@ lotto_input_spin_6 = Spinbox(root, from_=0, to=49)
 lotto_input_spin_6.config(width=2, font=("Garuda", 20))
 lotto_input_spin_6.place(x=520, y=170)
 
+
 # Answers
 lotto_output_entry_1 = Entry(root, state="disable")
 lotto_output_entry_1.config(width=4, font=("Garuda", 15))
@@ -64,10 +68,37 @@ lotto_output_entry_6 = Entry(root, state="disable")
 lotto_output_entry_6.config(width=4, font=("Garuda", 15))
 lotto_output_entry_6.place(x=520, y=300)
 
+
 # Amount of Plays Left
 plays_left_lbl = Label(root)
 plays_left_lbl.config()
 plays_left_lbl.place()
+
+# List of users' numbers
+user_list = []
+
+# Lotto numbers
+lotto_numbers = random.sample(range(0, 49), 6)
+print(lotto_numbers)
+
+
+# Lotto Draw Function
+def lotto():
+    # Getting users' inputs
+    try:
+        user_list = [int(lotto_input_spin_1.get()), int(lotto_input_spin_2.get()),
+                     int(lotto_input_spin_3.get()), int(lotto_input_spin_4.get()),
+                     int(lotto_input_spin_5.get()), int(lotto_input_spin_6.get())]
+
+        for i in range(6):
+            if 0 <= int(user_list[i]) <= 49:
+                user_list.append(user_list[i])
+            elif 49 < int(user_list[i]):
+                messagebox.showerror("Error", "Enter numbers between 0-49")
+
+    except:
+        messagebox.show('error')
+
 
 # Buttons
 # Claim Button

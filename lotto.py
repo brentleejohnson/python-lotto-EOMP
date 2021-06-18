@@ -18,29 +18,29 @@ lotto_lbl.pack()
 
 # Content
 # Input
-lotto_input_entry_1 = Entry(root, from_=0, to=49)
+lotto_input_entry_1 = Entry(root)
 lotto_input_entry_1.config(width=2, font=("Garuda", 20))
-lotto_input_entry_1.place(x=150, y=70)
+lotto_input_entry_1.place(x=75, y=70)
 
-lotto_input_entry_2 = Entry(root, from_=0, to=49)
+lotto_input_entry_2 = Entry(root)
 lotto_input_entry_2.config(width=2, font=("Garuda", 20))
-lotto_input_entry_2.place(x=225, y=70)
+lotto_input_entry_2.place(x=215, y=70)
 
-lotto_input_entry_3 = Entry(root, from_=0, to=49)
+lotto_input_entry_3 = Entry(root)
 lotto_input_entry_3.config(width=2, font=("Garuda", 20))
-lotto_input_entry_3.place(x=300, y=80)
+lotto_input_entry_3.place(x=335, y=70)
 
-lotto_input_entry_4 = Entry(root, from_=0, to=49)
+lotto_input_entry_4 = Entry(root)
 lotto_input_entry_4.config(width=2, font=("Garuda", 20))
-lotto_input_entry_4.place(x=370, y=120)
+lotto_input_entry_4.place(x=75, y=165)
 
-lotto_input_entry_5 = Entry(root, from_=0, to=49)
+lotto_input_entry_5 = Entry(root)
 lotto_input_entry_5.config(width=2, font=("Garuda", 20))
-lotto_input_entry_5.place(x=390, y=190)
+lotto_input_entry_5.place(x=215, y=165)
 
-lotto_input_entry_6 = Entry(root, from_=0, to=49)
+lotto_input_entry_6 = Entry(root)
 lotto_input_entry_6.config(width=2, font=("Garuda", 20))
-lotto_input_entry_6.place(x=395, y=260)
+lotto_input_entry_6.place(x=335, y=165)
 
 
 # Amount of Plays Left
@@ -53,7 +53,6 @@ user_list = []
 
 # Lotto numbers
 lotto_numbers = random.sample(range(0, 49), 6)
-print(lotto_numbers)
 
 
 # Lotto Draw Function
@@ -69,27 +68,26 @@ def lotto():
                 user_list.append(user_list[i])
             elif 49 < int(user_list[i]):
                 messagebox.showerror("Error", "Enter numbers between 0-49")
-            frame_lbl_1 = Label(Frame, text=lotto_numbers, font=("Garuda", 15))
-            frame_lbl_1.pack()
+            lotto_numbers_lbl = Label(root, text=lotto_numbers, font=("Garuda", 15))
+            lotto_numbers_lbl.place(x=20, y=250)
 
         # Storage for the lists
         matched_numbers = set(user_list) & set(lotto_numbers)
 
         if user_list == user_list:
-            matched_numbers_lbl = Label(Frame, text=matched_numbers, font=("Garuda", 15))
-            matched_numbers_lbl.pack()
+            matched_numbers_lbl = Label(root, text=matched_numbers, font=("Garuda", 15))
+            matched_numbers_lbl.place(x=20, y=280)
         else:
             if user_list == 00:
                 messagebox.showerror("Try Again", "There aren't any matched numbers:(")
 
         if len(matched_numbers) == 0:
-            matching_label = Label(Frame, text="0", font=("Garuda", 15))
-            matching_label.pack()
+            matching_label = Label(root, text="0", font=("Garuda", 15))
+            matching_label.place(x=20, y=310)
             messagebox.showerror("Try Again", "There aren't any matched numbers:(")
 
         elif len(matched_numbers) == 1:
             messagebox.showerror("Tough Luck", "You only matched one number, try again")
-
         elif len(matched_numbers) == 2:
             messagebox.showinfo("Nice!", "You won R20.00")
         elif len(matched_numbers) == 3:

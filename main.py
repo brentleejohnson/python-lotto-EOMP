@@ -19,55 +19,55 @@ from playsound import playsound
 window = Tk()
 window.title("Registration")
 window.geometry("350x250")
-window.config(bg="#343434")
+window.config(bg="#272640")
 
 
 class Register:
 
     def __init__(self, root):
         # Heading
-        self.registration_lbl1 = Label(root, text="Welcome To The Lotto Streak!!", fg="#7A7A7A")
-        self.registration_lbl1.config(bg="#343434")
+        self.registration_lbl1 = Label(root, text="Welcome To The Lotto Streak!!", fg="#006466")
+        self.registration_lbl1.config(bg="#272640")
         self.registration_lbl1.place(x="65", y="0")
 
-        self.registration_lbl2 = Label(root, text="To play, please sign-in below:", fg="#7A7A7A")
-        self.registration_lbl2.config(bg="#343434")
+        self.registration_lbl2 = Label(root, text="To play, please sign-in below:", fg="#006466")
+        self.registration_lbl2.config(bg="#272640")
         self.registration_lbl2.place(x="65", y="20")
 
         # Content
         # Name
-        self.name_lbl = Label(root, text="Your Name:", fg="#7A7A7A")
-        self.name_lbl.config(bg="#343434")
+        self.name_lbl = Label(root, text="Your Name:", fg="#006466")
+        self.name_lbl.config(bg="#272640")
         self.name_lbl.place(x="40", y="61")
 
         self.name_entry = Entry(root)
-        self.name_entry.config()
+        self.name_entry.config(bg="#4D194D", fg="#006466")
         self.name_entry.place(x="140", y="61")
 
         # Email
-        self.email_lbl = Label(root, text="Email:", fg="#7A7A7A")
-        self.email_lbl.config(bg="#343434")
+        self.email_lbl = Label(root, text="Email:", fg="#006466")
+        self.email_lbl.config(bg="#272640")
         self.email_lbl.place(x="70", y="93")
 
         self.email_entry = Entry(root)
-        self.email_entry.config()
+        self.email_entry.config(bg="#4D194D", fg="#006466")
         self.email_entry.place(x="140", y="93")
 
         # Id No.
-        self.id_lbl = Label(root, text="Id No:", fg="#7A7A7A")
-        self.id_lbl.config(bg="#343434")
+        self.id_lbl = Label(root, text="Id No:", fg="#006466")
+        self.id_lbl.config(bg="#272640")
         self.id_lbl.place(x="69", y="125")
 
         self.id_entry = Entry(root)
-        self.id_entry.config()
+        self.id_entry.config(bg="#4D194D", fg="#006466")
         self.id_entry.place(x="140", y="125")
 
         self.register_btn = Button(root, text="Register", width="15", command=self.register_button)
         self.register_btn.place(x="95", y="180")
 
         # Footer
-        self.footer_lbl = Label(root, text="Made by Brent Johnson", fg="#7A7A7A")
-        self.footer_lbl.config(bg="#343434")
+        self.footer_lbl = Label(root, text="Made by Brent Johnson", fg="#006466")
+        self.footer_lbl.config(bg="#272640")
         self.footer_lbl.place(x="85", y="230")
 
     def register_button(self):
@@ -91,7 +91,7 @@ class Register:
             elif relativedelta.relativedelta(datetime.datetime.today(), date_of_birth).years >= 18:
                 messagebox.showinfo(message="Congratulations. You can now play!")
                 window.destroy()
-                import lotto
+                import game
             else:
                 messagebox.showerror(message="Excuse me young one. You are underage!")
         except EmailNotValidError as e:

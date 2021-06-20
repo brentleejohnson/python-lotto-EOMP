@@ -8,14 +8,14 @@ import random
 root = Tk()
 root.title("Play lotto")
 root.geometry("500x650")
-root.config(bg="#343434")
+root.config(bg="#272640")
 root.resizable(0, 0)
 
 
 class rootNumbers:
     def __init__(self, lotto):
         self.lotto_lbl = Label(lotto, text="LOTTO STREAK!", font=("Garuda", 20))
-        self.lotto_lbl.config(bg="#343434", fg="#7A7A7A")
+        self.lotto_lbl.config(bg="#272640", fg="#006466")
         self.lotto_lbl.pack()
         self.btn1 = Button(lotto, text=1, width=2, command=lambda: self.on_click(1))
         self.btn1.place(x=50, y=85)
@@ -129,11 +129,11 @@ class rootNumbers:
         self.btn49.place(x=350, y=325)
 
         # Next Line
-        self.boardA = Label(lotto, width=25, height=2, bg="Aqua", cursor="dot")
+        self.boardA = Label(lotto, width=25, height=2, bg="#4D194D", fg="#006466", cursor="dot")
         self.boardA.place(x=130, y=370)
-        self.boardB = Label(lotto, width=25, height=2, bg="Aqua", cursor="dot")
+        self.boardB = Label(lotto, width=25, height=2, bg="#4D194D", fg="#006466", cursor="dot")
         self.boardB.place(x=130, y=420)
-        self.boardC = Label(lotto, width=25, height=2, bg="Aqua", cursor="dot")
+        self.boardC = Label(lotto, width=25, height=2, bg="#4D194D", fg="#006466", cursor="dot")
         self.boardC.place(x=130, y=470)
 
         # Buttons
@@ -143,9 +143,9 @@ class rootNumbers:
         self.claim_btn.place(x=200, y=600)
         self.replay_btn = Button(lotto, text="Play Again", command=self.play_again)
         self.replay_btn.place(x=415, y=600)
-        self.lotto_no = Label(lotto, bg="red")
+        self.lotto_no = Label(lotto, bg="#006466", fg="#4D194D")
         self.lotto_no.place(x=130, y=520)
-        self.prizes_label = Label(lotto, bg="red")
+        self.prizes_label = Label(lotto, bg="#006466", fg="#4D194D")
         self.prizes_label.place(x=130, y=540)
         self.root_set1 = []
         self.root_set2 = []

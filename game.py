@@ -6,21 +6,17 @@ from tkinter import messagebox
 import random
 
 root = Tk()
-root.config(bg="#069edb")
 root.title("Play lotto")
-root.geometry("500x650")
+root.geometry("500x600")
+root.config(bg="#343434")
 root.resizable(0, 0)
-
-img = PhotoImage(file="powerball.png")
-canvas = Canvas(root, width=391, height=129)
-canvas.create_image(0, 0, anchor=NW, image=img)
-canvas.place(x=55, y=0)
 
 
 class rootNumbers:
     def __init__(self, lotto):
-        self.numbers_label = Label(lotto, text="lotto Board", font="Arial 12", bg="#069edb")
-        self.numbers_label.place(x=120, y=150)
+        self.lotto_lbl = Label(lotto, text="LOTTO STREAK!", font=("Garuda", 20))
+        self.lotto_lbl.config(bg="#343434", fg="#7A7A7A")
+        self.lotto_lbl.pack()
         self.btn1 = Button(lotto, text=1, width=2, command=lambda: self.on_click(1))
         self.btn1.place(x=50, y=190)
         self.btn2 = Button(lotto, text=2, width=2, command=lambda: self.on_click(2))

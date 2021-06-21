@@ -147,9 +147,9 @@ class Claim:
                     messagebox.showinfo("Thank You For Playing!", "Check your email for further instructions.")
                     # sending of email
                     s = smtplib.SMTP('smtp.gmail.com', 587)
-                    sender_email_id = 'brentleejohnson73@gmail.com'
+                    sender_email_id = 'huntermoonspear@gmail.com'
                     receiver_email_id = self.email_entry.get()
-                    password = 'KINGie0621532382'
+                    password = 'dianadragonheart'
 
                     s.starttls()
 

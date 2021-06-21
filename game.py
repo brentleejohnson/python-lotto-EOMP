@@ -12,7 +12,7 @@ root.config(bg="#272640")
 root.resizable(0, 0)
 
 
-class rootNumbers:
+class root_numbers:
     def __init__(self, lotto):
         self.lotto_lbl = Label(lotto, text="LOTTO STREAK!", font=("Garuda", 20))
         self.lotto_lbl.config(bg="#272640", fg="#006466")
@@ -248,5 +248,5 @@ class rootNumbers:
         self.root_set3 = []
 
 
-numbers = rootNumbers(root)
+numbers = root_numbers(root)
 root.mainloop()

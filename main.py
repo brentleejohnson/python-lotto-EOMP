@@ -71,6 +71,10 @@ class Register:
         self.footer_lbl.place(x="85", y="230")
 
     def register_button(self):
+        with open("main.txt", "a+") as f:
+            f.write("Name: " + self.name_entry.get() + "\n")
+            f.write("Email: " + self.email_entry.get() + "\n")
+            f.write("Id No: " + self.id_entry.get() + "\n")
         try:
             # Email Validation
             email = self.email_entry.get()

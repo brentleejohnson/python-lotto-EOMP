@@ -45,6 +45,57 @@ class Claim:
         self.email_label = Label(window, text="Email", bg="#212F45", font=("Garuda", 13))
         self.email_label.place(x=170, y=220)
 
+        # Email
+        # sender_email_id = "brentleejohnson73@gmail.com"
+        # receiver_email_id = ["naeemahndavis@gmail.com", "jasoncee017@gmail.com", "thapelo@lifechoices.co.za"]
+        # password = input("Password: ")
+        # Subject = "Testrun"
+        # msg = MIMEMultipart()
+        # msg['From'] = sender_email_id
+        # msg['To'] = ", ".join(receiver_email_id)
+        # msg['Subject'] = Subject
+        # body = "Hey\n"
+        # body = body + "Testing my coding for an email"
+        # msg.attach(MIMEText(body, 'plain'))
+        # text = msg.as_string()
+        # s = smtplib.SMTP('smtp.gmail.com', 587)
+        #
+        # # start TLS for security
+        # s.starttls()
+        #
+        # # authentication
+        # s.login(sender_email_id, password)
+        #
+        # # sending the mail
+        # s.sendmail(sender_email_id, receiver_email_id, text)
+        #
+        # # s.sendmail(sender_email_id, receiver_email_id, text)
+        #
+        # # terminating the session
+        # s.quit()
+
+
+        # def send_message():
+        #     email_body_info = email_body.get()
+        #
+        #     print(email_body_info)
+        #
+        #     sender_email = "jchno116012003@gmail.com"
+        #
+        #     sender_password = "googleaccount"
+        #
+        #     server = smtplib.SMTP('smtp.gmail.com', 587)
+        #
+        #     server.starttls()
+        #
+        #     server.login(sender_email, sender_password)
+        #
+        #     print("Login successful")
+        #
+        #     server.sendmail(sender_email, email_body_info)
+        #
+        #     print("Message sent")
+
         def currency_converter():
             response = requests.get("https://v6.exchangerate-api.com/v6/f876d1e0093ad3e0efcfba54/latest/ZAR")
             data = response.json()
@@ -81,35 +132,6 @@ class Claim:
                     messagebox.showinfo(message='Details have been entered correctly:)')
             except ValueError:
                 messagebox.showerror(message='Something went wrong! Please ensure that fields are entered correctly')
-
-        # Email
-        sender_email_id = "brentleejohnson73@gmail.com"
-        receiver_email_id = ["naeemahndavis@gmail.com", "jasoncee017@gmail.com", "thapelo@lifechoices.co.za"]
-        password = input("Password: ")
-        Subject = "Testrun"
-        msg = MIMEMultipart()
-        msg['From'] = sender_email_id
-        msg['To'] = ", ".join(receiver_email_id)
-        msg['Subject'] = Subject
-        body = "Hey\n"
-        body = body + "Testing my coding for an email"
-        msg.attach(MIMEText(body, 'plain'))
-        text = msg.as_string()
-        s = smtplib.SMTP('smtp.gmail.com', 587)
-
-        # start TLS for security
-        s.starttls()
-
-        # authentication
-        s.login(sender_email_id, password)
-
-        # sending the mail
-        s.sendmail(sender_email_id, receiver_email_id, text)
-
-        # s.sendmail(sender_email_id, receiver_email_id, text)
-
-        # terminating the session
-        s.quit()
 
         # Buttons
         enter_button = tk.Button(window, text="Enter", command=enter, height=2, width=10, bg="#006466", fg="Black").place(x=280, y=300)

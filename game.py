@@ -139,7 +139,7 @@ class root_numbers:
         # Buttons
         self.play_btn = Button(lotto, text="Play", command=self.play)
         self.play_btn.place(x=15, y=600)
-        self.claim_btn = Button(lotto, text="Claim Prize")
+        self.claim_btn = Button(lotto, text="Claim Prize", command=self.claim_prize)
         self.claim_btn.place(x=200, y=600)
         self.replay_btn = Button(lotto, text="Play Again", command=self.play_again)
         self.replay_btn.place(x=415, y=600)
@@ -236,6 +236,11 @@ class root_numbers:
             self.lotto_no.config(text=lotto_list)
         else:
             messagebox.showinfo("Error", "Please use all your tries first")
+
+    @staticmethod
+    def claim_prize():
+        root.destroy()
+        import banking_details
 
     def play_again(self):
         self.boardA.config(text="")

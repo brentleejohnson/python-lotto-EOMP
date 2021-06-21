@@ -6,6 +6,10 @@ from tkinter import *
 import tkinter as tk
 from tkinter import messagebox
 import requests
+# Email
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 # initialise the self
 window = tk.Tk()
@@ -44,13 +48,13 @@ class Claim:
         def currency_converter():
             response = requests.get("https://v6.exchangerate-api.com/v6/f876d1e0093ad3e0efcfba54/latest/ZAR")
             data = response.json()
-            with open("Login_use.txt", 'a') as file:
-                for line in file:
-                    if "Prize" in line:
-                        prize = line[8:-1]
-            total = prize * data["conversion_rates"][self.currency_entry.get()]
 
-        # Function to tells if user is older enough to play
+        # def convert_curr():
+        #     url = "https://v6.exchangerate-api.com/v6/89dcd9e8cc7777ded2575ce1/latest/" + self.currency_label.get()
+        #     information = requests.get(url).json()
+        #     output = int(# Value of total rewards) * information["conversion_rates"]["USD"]
+        #     output_val.config(text=output)
+
         def enter():
             try:
                 list1 = ["1", "2", "3", "4", '5', "6", "7", "8", '9', "0"]
@@ -77,6 +81,35 @@ class Claim:
                     messagebox.showinfo(message='Details have been entered correctly:)')
             except ValueError:
                 messagebox.showerror(message='Something went wrong! Please ensure that fields are entered correctly')
+
+        # Email
+        sender_email_id = "brentleejohnson73@gmail.com"
+        receiver_email_id = ["naeemahndavis@gmail.com", "jasoncee017@gmail.com", "thapelo@lifechoices.co.za"]
+        password = input("Password: ")
+        Subject = "Testrun"
+        msg = MIMEMultipart()
+        msg['From'] = sender_email_id
+        msg['To'] = ", ".join(receiver_email_id)
+        msg['Subject'] = Subject
+        body = "Hey\n"
+        body = body + "Testing my coding for an email"
+        msg.attach(MIMEText(body, 'plain'))
+        text = msg.as_string()
+        s = smtplib.SMTP('smtp.gmail.com', 587)
+
+        # start TLS for security
+        s.starttls()
+
+        # authentication
+        s.login(sender_email_id, password)
+
+        # sending the mail
+        s.sendmail(sender_email_id, receiver_email_id, text)
+
+        # s.sendmail(sender_email_id, receiver_email_id, text)
+
+        # terminating the session
+        s.quit()
 
         # Buttons
         enter_button = tk.Button(window, text="Enter", command=enter, height=2, width=10, bg="#006466", fg="Black").place(x=280, y=300)

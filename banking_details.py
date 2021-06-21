@@ -5,6 +5,8 @@ import datetime
 from tkinter import *
 import tkinter as tk
 from tkinter import messagebox
+import re
+import datetime as dt
 import requests
 # Email
 import smtplib
@@ -17,6 +19,8 @@ window.title("Lotto Machine")
 window.geometry("900x400")
 window.config(bg="#212F45")
 
+class InvalidAccountName:
+    pass
 
 class Claim:
     def __init__(self, window):
@@ -99,37 +103,68 @@ class Claim:
         def currency_converter():
             response = requests.get("https://v6.exchangerate-api.com/v6/f876d1e0093ad3e0efcfba54/latest/ZAR")
             data = response.json()
-
-        # def convert_curr():
-        #     url = "https://v6.exchangerate-api.com/v6/89dcd9e8cc7777ded2575ce1/latest/" + self.currency_label.get()
-        #     information = requests.get(url).json()
-        #     output = int(# Value of total rewards) * information["conversion_rates"]["USD"]
-        #     output_val.config(text=output)
+            with open("Login_use.txt", 'a') as file:
+                for line in file:
+                    if "Prize" in line:
+                        prize = line[8:-1]
+            total = prize
+                # raise ValueError* data["conversion_rates"][self.currency_entry.get()]
 
         def enter():
+            list1 = ["1", "2", "3", "4", '5', "6", "7", "8", '9', "0"]
+            name_ent = self.account_holder_name_entry.get()
+            number_ent = self.account_number_entry.get()
+            with open("player_id.txt", "a+") as f:
+                f.write("Account Holder Name: " + self.account_holder_name_entry.get() + "\n")
+                f.write("Account Number: " + self.account_number_entry.get() + "\n")
+                f.write("Currency Code: " + self.currency_entry.get() + "\n")
+                f.write("Email: " + self.email_entry.get() + "\n")
+            if name_ent == '':
+                raise ValueError
+            elif name_ent in list1:
+                raise ValueError
+            if number_ent == '':
+                raise ValueError
+            else:
+                int(self.account_number_entry.get())
+                messagebox.showinfo(message='Details have been entered correctly:)')
+            if self.variable.get() == 'Select Bank':
+                # raise ValueError
+                messagebox.showwarning("enter a bank please")
+            elif self.variable.get() == 'FNB':
+                messagebox.showinfo(message='Details have been entered correctly:)')
+            elif self.variable.get() == 'Capitec':
+                messagebox.showinfo(message='Details have been entered correctly:)')
+            elif self.variable.get() == 'Netbank':
+                messagebox.showinfo(message='Details have been entered correctly:)')
+            elif self.variable.get() == 'Standard Bank':
+                messagebox.showinfo(message='Details have been entered correctly:)')
             try:
-                list1 = ["1", "2", "3", "4", '5', "6", "7", "8", '9', "0"]
-                name_ent = self.account_holder_name_entry.get()
-                number_ent = self.account_number_entry.get()
-                if name_ent == '':
-                    raise ValueError
-                elif name_ent in list1:
-                    raise ValueError
-                if number_ent == '':
-                    raise ValueError
-                else:
-                    int(self.account_number_entry.get())
-                    messagebox.showinfo(message='Details have been entered correctly:)')
-                if self.variable.get() == 'Select Bank':
-                    raise ValueError
-                elif self.variable.get() == 'FNB':
-                    messagebox.showinfo(message='Details have been entered correctly:)')
-                elif self.variable.get() == 'Capitec':
-                    messagebox.showinfo(message='Details have been entered correctly:)')
-                elif self.variable.get() == 'Netbank':
-                    messagebox.showinfo(message='Details have been entered correctly:)')
-                elif self.variable.get() == 'Standard Bank':
-                    messagebox.showinfo(message='Details have been entered correctly:)')
+                int(self.account_number_entry.get())
+                if self.account_holder_name_entry.get():
+                    # writing to text file
+                    # playsound("./sounds/391539__mativve__electro-win-sound.wav")
+                    messagebox.showinfo("Thank You For Playing!", "Check your email for further instructions.")
+                    # sending of email
+                    s = smtplib.SMTP('smtp.gmail.com', 587)
+                    sender_email_id = 'brentleejohnson73@gmail.com'
+                    receiver_email_id = self.email_entry.get()
+                    password = 'KINGie0621532382'
+
+                    s.starttls()
+
+                    s.login(sender_email_id, password)
+
+                    message = "Subject: Congratulations!!!\n"
+                    message = message + "Thank you for playing " + self.account_holder_name_entry.get() + "\nYour winnings are: " \
+                  + "\nAccount name: " \
+                  + self.account_holder_name_entry.get() + "\nAccount number: " + self.account_number_entry.get()
+                    # + winningsLabel.cget('text') + "\nBelow are your details:" + "\nPlayer ID: " + playerID \
+                    s.sendmail(sender_email_id, receiver_email_id, message)
+
+                    s.quit()
+                    # claimsc.destroy()
+                    window.destroy()
             except ValueError:
                 messagebox.showerror(message='Something went wrong! Please ensure that fields are entered correctly')
 

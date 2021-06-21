@@ -71,7 +71,7 @@ class Register:
         self.footer_lbl.place(x="85", y="230")
 
     def register_button(self):
-        with open("main.txt", "a+") as f:
+        with open("player_id.txt", "a+") as f:
             f.write("Name: " + self.name_entry.get() + "\n")
             f.write("Email: " + self.email_entry.get() + "\n")
             f.write("Id No: " + self.id_entry.get() + "\n")
@@ -97,7 +97,7 @@ class Register:
                 window.destroy()
                 import game
             else:
-                messagebox.showerror(message="Excuse me young one. You are underage!")
+                messagebox.showerror("Error", "Excuse me young one. You are underage!")
         except EmailNotValidError as e:
             # Email is not valid, exception message
             messagebox.showerror("Email Validation", "Please check to ensure that your email is correct.")

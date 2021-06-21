@@ -218,6 +218,8 @@ class root_numbers:
                 correct3 += 1
             if correct3 == 2:
                 earnings3 = prizes[2]
+                with open("banking_details.txt", 'a') as file:
+                    file.write('P')
             elif correct3 == 3:
                 earnings3 = prizes[3]
             elif correct3 == 4:
